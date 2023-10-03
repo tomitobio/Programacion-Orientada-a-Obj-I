@@ -10,19 +10,14 @@ public class Persona {
         this.genero = genero;
     }
 
-    // Getter para obtener el nombre
-    public String getNombre() {
-        return nombre;
-    }
-
     // Setter para establecer el nombre
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
 
-    // Getter para obtener la edad
-    public int getEdad() {
-        return edad;
+    // Getter para obtener el nombre
+    public String getNombre() {
+        return nombre;
     }
 
     // Setter para establecer la edad
@@ -30,13 +25,18 @@ public class Persona {
         this.edad = edad;
     }
 
-    // Getter para obtener el género
-    public char getGenero() {
-        return genero;
+    // Getter para obtener la edad
+    public int getEdad() {
+        return edad;
     }
 
     // Setter para establecer el género
     public void setGenero(char genero) {
         this.genero = genero;
+    }
+
+    // Getter para obtener el género
+    public char getGenero() {
+        return genero;
     }
 }
