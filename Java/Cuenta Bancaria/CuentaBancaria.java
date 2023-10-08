@@ -1,12 +1,18 @@
 public class CuentaBancaria {
+
+    // Atributos
     private String titular;
     private double saldo;
+    //
 
+    // Constructor
     public CuentaBancaria(String titular) {
         this.titular = titular;
         this.saldo = 0.0;
     }
+    //
 
+    // Getters - buscador de atributos -
     public String getTitular() {
         return titular;
     }
@@ -14,7 +20,11 @@ public class CuentaBancaria {
     public double getSaldo() {
         return saldo;
     }
+    //
 
+    /* METODOS ESTRICTOS */
+
+    // Deposito dinero en objeto (Condicion: que cantidad ingresada sea positiva)
     public void depositar(double cantidad) {
         if (cantidad > 0) {
             saldo += cantidad;
@@ -24,6 +34,8 @@ public class CuentaBancaria {
         }
     }
 
+    // Retiro dinero en objeto (Condicion: que cantidad ingresada sea positiva y que
+    // sea MENOR al saldo - plata que tiene la cuenta)
     public void retirar(double cantidad) {
         if (cantidad > 0 && cantidad <= saldo) {
             saldo -= cantidad;
@@ -35,6 +47,8 @@ public class CuentaBancaria {
         }
     }
 
+    // Envio dinero a otro objeto (Variable monto, que debe ser MENOR al saldo y
+    // mayor a 0 --> restarle al saldo)
     public void realizarTransferencia(double monto, CuentaBancaria cuentaDestino) {
         if (monto > 0 && monto <= saldo) {
             saldo -= monto;
@@ -49,6 +63,8 @@ public class CuentaBancaria {
         }
     }
 
+    // Comrpo un producto (Variable valorProducto, que debe ser MENOR al saldo y
+    // mayor a 0 --> restarle al saldo)
     public void realizarCompra(double valorProducto) {
         if (valorProducto > 0 && valorProducto <= saldo) {
             saldo -= valorProducto;
