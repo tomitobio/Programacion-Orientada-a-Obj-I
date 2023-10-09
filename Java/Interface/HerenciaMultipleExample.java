@@ -1,9 +1,10 @@
 /*
  * Sistema de pago con herencia múltiple 
 
-Ampliemos el sistema de pago para permitir diferentes métodos de autenticación, además de diferentes métodos de pago. 
-Crearemos una interfaz adicional llamada Autenticable para establecer métodos de autenticación.
- Las clases TarjetaCredito y PayPal implementarán tanto MetodoDePago como Autenticable. 
+Ampliemos el sistema de pago para permitir diferentes métodos de autenticación, además 
+de diferentes métodos de pago. Crearemos una interfaz adicional llamada Autenticable 
+para establecer métodos de autenticación. Las clases TarjetaCredito 
+y PayPal implementarán tanto MetodoDePago como Autenticable. 
  */
 
 interface MetodoDePago {
