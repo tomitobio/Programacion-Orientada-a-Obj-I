@@ -15,6 +15,15 @@ class CorreoElectronico implements Notificable {
         this.contra = contra;
     }
 
+    // Getters
+    public String getCasilla() {
+        return casilla;
+    }
+
+    public String getContra() {
+        return contra;
+    }
+
     // Notificable
     @Override
     public void enviarNotificacion(int tipo) {
