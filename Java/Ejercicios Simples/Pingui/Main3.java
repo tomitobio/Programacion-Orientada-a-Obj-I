@@ -21,7 +21,7 @@ class Pingüino implements Ave, Pez {
     }
 }
 
-public class Main {
+public class Main3 {
     public static void main(String[] args) {
         Pingüino miPingüino = new Pingüino();
         miPingüino.volar();

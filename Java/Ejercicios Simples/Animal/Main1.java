@@ -80,7 +80,7 @@ class Gato extends Animal implements Mascota {
     }
 }
 
-public class Main {
+public class Main1 {
     public static void main(String[] args) {
         Perro miPerro = new Perro("Rex", 3);
         Gato miGato = new Gato("Whiskers", 2);

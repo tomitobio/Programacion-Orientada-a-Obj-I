@@ -52,7 +52,7 @@ class CuentaAhorro extends CuentaBancaria {
     }
 }
 
-public class Main {
+public class Main2 {
     public static void main(String[] args) {
         CuentaCorriente cuentaCorriente = new CuentaCorriente("123456", 1000);
         CuentaAhorro cuentaAhorro = new CuentaAhorro("789012", 2000);
