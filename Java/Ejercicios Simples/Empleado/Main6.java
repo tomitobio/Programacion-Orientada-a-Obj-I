@@ -1,9 +1,8 @@
-// Clase base Empleado
-class Empleado {
+class Empleado1 {
     private String nombre;
     private double salario;
 
-    public Empleado(String nombre, double salario) {
+    public Empleado1(String nombre, double salario) {
         this.nombre = nombre;
         this.salario = salario;
     }
@@ -21,8 +20,7 @@ class Empleado {
     }
 }
 
-// Subclase Gerente que hereda de Empleado
-class Gerente extends Empleado {
+class Gerente extends Empleado1 {
     private double bonoAnual;
 
     public Gerente(String nombre, double salario, double bonoAnual) {
@@ -36,8 +34,7 @@ class Gerente extends Empleado {
     }
 }
 
-// Subclase Vendedor que hereda de Empleado
-class Vendedor extends Empleado {
+class Vendedor extends Empleado1 {
     private double comisionAnual;
 
     public Vendedor(String nombre, double salario, double comisionAnual) {
@@ -53,7 +50,7 @@ class Vendedor extends Empleado {
 
 public class Main6 {
     public static void main(String[] args) {
-        Empleado empleado1 = new Empleado("Juan", 50000);
+        Empleado1 empleado1 = new Empleado1("Juan", 50000);
         Gerente gerente = new Gerente("Ana", 80000, 10000);
         Vendedor vendedor = new Vendedor("Carlos", 60000, 5000);
 
