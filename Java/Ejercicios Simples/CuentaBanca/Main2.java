@@ -84,29 +84,62 @@ class cuentaBancaria {
         System.out.println("El saldo de la cuenta es: " + this.saldo);
     }
 
-    public void retirar(double retiro){
+    public void retirar(double retiro) {
         try {
-            if (retiro > saldo){
-                System.out.println("El monto ingresado es mayor al dinero disponible");
-            }
-            else {
+            if (retiro > saldo) {
+                System.out.println("El monto ingresado es mayor al dinero disponible.");
+            } else {
                 saldo -= retiro;
                 System.out.println("El monto ingresado ha sido retirado.");
             }
+        } catch (Exception e) {
         }
-        catch(Exception e)    }
+    }
 
     public void depositar(double deposito) {
-
-        saldo -= retiro;
+        saldo += deposito;
+        System.out.println("El monto ingresado ha sido depositado.");
 
     }
-}}
+}
+
+class cuentaCorriente extends cuentaBancaria {
+    public cuentaCorriente(int numC, double saldo) {
+        super(numC, saldo);
+    }
+}
+
+class cuentaAhorro extends cuentaBancaria {
+
+    public cuentaAhorro(int numC, double saldo) {
+        super(numC, saldo);
+    }
+
+    @Override
+    public void retirar(double retiro) {
+        try {
+            if (retiro > saldo) {
+                System.out.println("El monto ingresado es mayor al dinero disponible en cuenta de ahorro.");
+            } else {
+                saldo -= retiro;
+                System.out.println("El monto ingresado ha sido retirado de la cuenta de ahorro.");
+            }
+        } catch (Exception e) {
+        }
+    }
+
+    @Override
+    public void depositar(double deposito) {
+        saldo += deposito;
+        System.out.println("El monto ingresado ha sido depositado en la cuenta de ahorro.");
+
+    }
+}
 
 public class Main2 {
     public static void main(String[] args) {
-        CuentaCorriente cuenta = new cuentaCorriente(352476, 5000);
-        CuentaAhorro ahorro = new cuentaAhorro(35801, 2000);
+        cuentaCorriente cuenta = new cuentaCorriente(352476, 5000);
+        cuentaAhorro ahorro = new cuentaAhorro(35801, 2000);
 
         cuenta.mostrarSaldo();
         cuenta.retirar(2600);
