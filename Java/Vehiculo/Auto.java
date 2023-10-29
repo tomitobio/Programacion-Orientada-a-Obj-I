@@ -1,4 +1,4 @@
-public class Auto extends Vehiculo {
+public class Auto extends Vehiculo1 {
     private int numeroPuertas;
 
     public Auto(String marca, String modelo, int anio, int numeroPuertas) {

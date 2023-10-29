@@ -1,4 +1,4 @@
-public class Bicicleta extends Vehiculo {
+public class Bicicleta extends Vehiculo1 {
     private int tamanoLlanta;
 
     public Bicicleta(String marca, String modelo, int anio, int tamanoLlanta) {

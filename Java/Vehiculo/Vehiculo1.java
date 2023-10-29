@@ -1,9 +1,9 @@
-public class Vehiculo {
+public class Vehiculo1 {
     protected String marca;
     protected String modelo;
     protected int anio;
 
-    public Vehiculo(String marca, String modelo, int anio) {
+    public Vehiculo1(String marca, String modelo, int anio) {
         this.marca = marca;
         this.modelo = modelo;
         this.anio = anio;
