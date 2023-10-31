@@ -1,9 +1,9 @@
 import java.util.ArrayList;
 
 abstract class Usuario { // Listo
-    public String nombre;
-    public String apellido;
-    public String email;
+    protected String nombre;
+    protected String apellido;
+    protected String email;
 
     public Usuario(String nombre, String apellido, String email) {
         this.nombre = nombre;
@@ -19,8 +19,8 @@ interface Descuentable { // Listo
 }
 
 class Producto implements Descuentable { // Listo
-    public String nombre;
-    public double precio;
+    protected String nombre;
+    protected double precio;
 
     public Producto(String nombre, double precio) {
         this.nombre = nombre;
@@ -46,8 +46,8 @@ class Producto implements Descuentable { // Listo
 }
 
 class Cliente extends Usuario { // Listo
-    public int numCliente;
-    public boolean jubilado;
+    protected int numCliente;
+    protected boolean jubilado;
 
     public Cliente(String nombre, String apellido, String email, int numCliente, boolean jubilado) {
         super(nombre, apellido, email);
@@ -75,8 +75,8 @@ class Cliente extends Usuario { // Listo
 }
 
 class Empleado extends Usuario { // Listo
-    public String puesto;
-    public String sector;
+    protected String puesto;
+    protected String sector;
 
     public Empleado(String nombre, String apellido, String email, String puesto, String sector) {
         super(nombre, apellido, email);
@@ -106,12 +106,12 @@ class Empleado extends Usuario { // Listo
 }
 
 class Pedido { // Listo
-    public ArrayList<Producto> productos;
-    public Cliente cliente;
-    public Empleado empleado;
+    protected ArrayList<Producto> productos; //
+    protected Cliente cliente;
+    protected Empleado empleado;
 
     public Pedido(ArrayList<Producto> productos, Cliente cliente, Empleado empleado) {
-        this.productos = productos;
+        this.productos = productos; //
         this.cliente = cliente;
         this.empleado = empleado;
     }
@@ -135,7 +135,7 @@ public class Parcial {
 
         Cliente c = new Cliente("Carina", "Zangaro", "catetobio@gmail.com", 1, false);
         Empleado e = new Empleado("Tomas", "Tobio", "tomasetobio@gmail.com", "Cajero", "Supermercado");
-        ArrayList<Producto> p = new ArrayList<Producto>();
+        ArrayList<Producto> p = new ArrayList<Producto>(); //
 
         Pedido pedido = new Pedido(p, c, e);
 
