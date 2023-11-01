@@ -9,7 +9,7 @@ public class Partida {
     public Partida(int base, int dificultad) {
         this.base = base;
         this.campo = new Campo(base, dificultad);
-        // campo.admin();
+        campo.admin();
     }
 
     public void jugar() {
