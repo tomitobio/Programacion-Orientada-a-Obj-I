@@ -1,8 +1,10 @@
-package tetris;
+package tetris2;
 
-import java.util.*;
+import java.util.Scanner;
 
-public class Partida {
+import tetris.Tablero;
+
+public class Partida2 {
     private Tablero tablero;
     private int largo;
     private int ancho;
@@ -15,7 +17,7 @@ public class Partida {
         this.tablero = new Tablero(largo, ancho);
     }
 
-    public void iniciar() {
+    public void jugar() {
         int mov;
         int altura;
         int lateral;
@@ -77,9 +79,9 @@ public class Partida {
             }
         }
         if (cont == ancho) {
-            for (int i = 0; i < this.ancho; i++) {
-                tablero.getTablero()[altura][i].setEstado(false);
-            }
+            // for (int i = 0; i < this.ancho; i++) {
+            // tablero.getTablero()[altura][i].setEstado(false);
+            // }
             return true;
         } else {
             return false;
