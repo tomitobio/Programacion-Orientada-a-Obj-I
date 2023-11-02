@@ -1,32 +1,38 @@
 package BuscaMinas;
 
 public class Celda {
-    private boolean estado; //bomba
+    private boolean estado; // bomba
     private int[] pos = new int[2];
     private boolean revelado = false;
     private int bombasVecinas;
-    
-    public Celda(int[] pos, boolean estado){
+
+    public Celda(int[] pos, boolean estado) {
         this.pos = pos;
         this.estado = estado;
     }
-    public boolean getEstado(){
-        return this.estado;
+
+    public boolean getEstado() {
+        return estado;
     }
-    public int[] getPos(){
+
+    public int[] getPos() {
         return pos;
     }
-    public void setRevelado(){
+
+    public void setRevelado() {
         this.revelado = true;
     }
-    public boolean getRevelado(){
+
+    public boolean getRevelado() {
         return this.revelado;
     }
-    public int getBombas(){
+
+    public int getBombas() {
         return bombasVecinas;
     }
-    public void setBombas(int bombas){
+
+    public void setBombas(int bombas) {
         this.bombasVecinas = bombas;
     }
-    
+
 }

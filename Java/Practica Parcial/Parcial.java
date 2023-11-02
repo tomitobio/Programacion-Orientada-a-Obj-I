@@ -19,7 +19,7 @@ interface Descuentable { // Listo
 }
 
 class Producto implements Descuentable { // Listo
-    protected String nombre;
+    private String nombre;
     protected double precio;
 
     public Producto(String nombre, double precio) {
@@ -40,18 +40,16 @@ class Producto implements Descuentable { // Listo
     }
 
     public void aplicarDescuento(double porcentajeDescuento) {
-        precio = (precio * porcentajeDescuento) / 100;
+        precio = (precio * (100 - porcentajeDescuento) / 100);
         System.out.println("Descuento del " + porcentajeDescuento + "% a " + nombre + " realizado. \n");
     }
 }
 
 class Cliente extends Usuario { // Listo
-    protected int numCliente;
     protected boolean jubilado;
 
     public Cliente(String nombre, String apellido, String email, int numCliente, boolean jubilado) {
         super(nombre, apellido, email);
-        this.numCliente = numCliente;
         this.jubilado = jubilado;
     }
 
@@ -75,13 +73,8 @@ class Cliente extends Usuario { // Listo
 }
 
 class Empleado extends Usuario { // Listo
-    protected String puesto;
-    protected String sector;
-
     public Empleado(String nombre, String apellido, String email, String puesto, String sector) {
         super(nombre, apellido, email);
-        this.puesto = puesto;
-        this.sector = sector;
     }
 
     public String getNombre() {
@@ -117,6 +110,10 @@ class Pedido { // Listo
     }
 
     public void agregarProducto(Producto p) {
+        if (cliente.jubilado == true) {
+            p.aplicarDescuento(30);
+        }
+
         productos.add(p);
         System.out.println("El producto " + p.getNombre() + " ha sido agregado con éxito! ");
     }
@@ -133,7 +130,7 @@ class Pedido { // Listo
 public class Parcial {
     public static void main(String[] args) {
 
-        Cliente c = new Cliente("Carina", "Zangaro", "catetobio@gmail.com", 1, false);
+        Cliente c = new Cliente("Carina", "Zangaro", "catetobio@gmail.com", 1, true);
         Empleado e = new Empleado("Tomas", "Tobio", "tomasetobio@gmail.com", "Cajero", "Supermercado");
         ArrayList<Producto> p = new ArrayList<Producto>(); //
 
@@ -143,8 +140,6 @@ public class Parcial {
         Producto p2 = new Producto("Salsa de tomate", 450);
         Producto p3 = new Producto("Coca - Cola", 700);
         Producto p4 = new Producto("Verduras varias", 1500);
-
-        p4.aplicarDescuento(64);
 
         pedido.agregarProducto(p1);
         pedido.agregarProducto(p2);
