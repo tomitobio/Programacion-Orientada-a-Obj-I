@@ -79,9 +79,9 @@ public class Partida2 {
             }
         }
         if (cont == ancho) {
-            // for (int i = 0; i < this.ancho; i++) {
-            // tablero.getTablero()[altura][i].setEstado(false);
-            // }
+            for (int i = 0; i < this.ancho; i++) {
+                tablero.getTablero()[altura][i].setEstado(false);
+            }
             return true;
         } else {
             return false;
@@ -99,3 +99,6 @@ public class Partida2 {
         this.tablero = nuevoTablero;
     }
 }
+
+
+
