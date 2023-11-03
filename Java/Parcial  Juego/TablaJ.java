@@ -41,12 +41,8 @@ public class TablaJ {
         int[] alrededorF = { fila - 1, fila, fila + 1 };
         for (int i : alrededorF) {
             for (int j : alrededorC) {
-                try {
-                    if (tabla[i][j].vive() && (i < size && j < size) && (i >= 0 && j >= 0) && tabla[i][j] != c) {
-                        cont++;
-                    }
-                } catch (Exception e) {
-
+                if (tabla[i][j].vive() && (i < size && j < size) && (i >= 0 && j >= 0) && tabla[i][j] != c) {
+                    cont++;
                 }
             }
         }

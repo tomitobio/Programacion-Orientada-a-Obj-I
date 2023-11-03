@@ -37,6 +37,7 @@ public class PartidaJ {
                     }
                 }
             }
+
             tabla = proximo;
             System.out.println("Ciclo: " + i);
             tabla.imprimir();
