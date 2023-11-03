@@ -128,7 +128,7 @@ public class TablaJ {
 
     public int cantVecinos(CelulaJ c) {
         int cont = 0;
-
+        wtwegw
         return cont;
     }
 }
