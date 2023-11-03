@@ -160,6 +160,14 @@ import java.util.ArrayList;
 // }
 // }
 
+interface Descuentable {
+    double aplicarDescuento();
+}
+
+class Producto implements Descuentable {
+
+}
+
 public class Parcial {
     public static void main(String[] args) {
 
