@@ -128,7 +128,18 @@ public class TablaJ {
 
     public int cantVecinos(CelulaJ c) {
         int cont = 0;
-        wtwegw
+        int fila = c.getPos()[0];
+        int columna = c.getPos()[1];
+        int altC[] = { fila - 1, fila, fila + 1 };
+        int altF[] = { columna - 1, columna, columna + 1 };
+
+        for (int i : altF) {
+            for (int j : altC) {
+                if (tablero[i][j].vive() && (i < size && j < size) && (i >= 0 && j >= 0) && tablero[i][j] != c) {
+                    cont++;
+                }
+            }
+        }
         return cont;
     }
 }
