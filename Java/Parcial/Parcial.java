@@ -1,4 +1,4 @@
-import java.util.ArrayList;
+// import java.util.ArrayList;
 
 // abstract class Usuario { // Listo
 // protected String nombre;
@@ -119,7 +119,6 @@ import java.util.ArrayList;
 // if (cliente.jubilado == true) {
 // p.aplicarDescuento(30);
 // }
-
 // productos.add(p);
 // System.out.println("El producto " + p.getNombre() + " ha sido agregado con
 // éxito! ");
@@ -159,17 +158,3 @@ import java.util.ArrayList;
 // e.hacerPedido(pedido);
 // }
 // }
-
-interface Descuentable {
-    double aplicarDescuento();
-}
-
-class Producto implements Descuentable {
-
-}
-
-public class Parcial {
-    public static void main(String[] args) {
-
-    }
-}
