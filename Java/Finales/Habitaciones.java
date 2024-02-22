@@ -89,7 +89,7 @@ public class Habitaciones {
         Hotel hotel = new Hotel();
 
         // Ejemplo de check-in
-        String[] ocupantesHabitacionDoble = {"Titular", "Ocupante"};
+        String[] ocupantesHabitacionDoble = { "Titular", "Ocupante" };
         hotel.hacerCheckIn("D01", ocupantesHabitacionDoble);
 
         // Mostrar estado de ocupación
@@ -97,5 +97,7 @@ public class Habitaciones {
 
         // Ejemplo de check-out
         hotel.hacerCheckOut("D01", 3); // Suponiendo 3 días de estadía
+
+        hotel.mostrarEstadoOcupacion();
     }
 }
