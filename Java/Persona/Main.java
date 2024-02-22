@@ -1,7 +1,7 @@
 public class Main {
     public static void main(String[] args) {
         // Crear una instancia de la clase Persona
-        Persona persona = new Persona("Juan Pérez", 30, 'M');
+        Persona1 persona = new Persona1("Juan Pérez", 30, 'M');
 
         // Mostrar la información inicial de la persona
         System.out.println("Información de la Persona:");

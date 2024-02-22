@@ -1,10 +1,10 @@
-public class Persona {
+public class Persona1 {
     private String nombre; // Atributo para almacenar el nombre
     private int edad; // Atributo para almacenar la edad
     private char genero; // Atributo para almacenar el género
 
     // Constructor
-    public Persona(String nombre, int edad, char genero) {
+    public Persona1(String nombre, int edad, char genero) {
         this.nombre = nombre;
         this.edad = edad;
         this.genero = genero;
