@@ -1,6 +1,8 @@
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Iterator;
+import java.util.Scanner;
 
 // Hecho estatico
 
@@ -273,6 +275,10 @@ class Habitacion {
 
     }
 
+    public String getCodigo() {
+        return this.codigo;
+    }
+
     public boolean getOcupada() {
         return this.ocupada;
     }
@@ -318,7 +324,6 @@ class Habitacion {
             } else {
                 this.ocupantes.add(p);
             }
-
         }
 
     }
@@ -354,15 +359,27 @@ class Hotel {
     }
 
     public void crearHabitaciones() {
-        for (int i = 0; i < 13; i++) {
-            habitaciones.put("HD" + Integer.toString(i), new Habitacion("HD21", 2000, 2));
+        for (int i = 1; i < 14; i++) {
+            habitaciones.put("HD" + Integer.toString(i), new Habitacion("HD" + Integer.toString(i), 2000, 2));
         }
-        for (int i = 0; i < 8; i++) {
-            habitaciones.put("HT" + Integer.toString(i), new Habitacion("HT31", 2800, 3));
+        for (int i = 1; i < 9; i++) {
+            habitaciones.put("HT" + Integer.toString(i), new Habitacion("HT" + Integer.toString(i), 2800, 3));
         }
-        for (int i = 0; i < 5; i++) {
-            habitaciones.put("HC" + Integer.toString(i), new Habitacion("HC41", 2500, 4));
+        for (int i = 1; i < 6; i++) {
+            habitaciones.put("HC" + Integer.toString(i), new Habitacion("HC" + Integer.toString(i), 2500, 4));
         }
+    }
+
+    public Map<String, Habitacion> getTodasLibres() {
+        Map<String, Habitacion> libres = new HashMap<>();
+        for (Map.Entry<String, Habitacion> set : habitaciones.entrySet()) {
+            String llave = set.getKey();
+            Habitacion h = set.getValue();
+            if (h.getOcupada() == false) {
+                libres.put(llave, h);
+            }
+        }
+        return libres;
     }
 
     public Habitacion getH(String h) {
@@ -402,20 +419,95 @@ public class Hoteleria {
 
         Hotel h = new Hotel();
 
-        h.hacerCheckIn("HD1", p1);
-
-        h.hacerCheckIn("HD1", p2);
-
-        h.hacerCheckIn("HD1", p3);
+        Scanner scanner = new Scanner(System.in);
+        int select = -1;
 
         h.mostrarEstadoOcupacion();
 
-        h.getH("HD1").detallesO();
+        while (select != 0) {
+            try {
+                System.out.println("Bienvenido al hotel. Elija un tipo de habitacion: ");
+                System.out.println("(2 para doble, 3 para triple, 4 para cuadruple)");
+                select = Integer.parseInt(scanner.nextLine());
+                int i = 1;
+                switch (select) {
 
-        h.hacerCheckOut("HD1", 5);
+                    case 2:
+
+                        // Iterator<Map.Entry<String, Habitacion>> iterator =
+                        // h.getTodas().entrySet().iterator();
+                        // while (iterator.hasNext()) {
+                        // Map.Entry<String, Habitacion> entry = iterator.next();
+                        // if (iterator.getKey().getCodigo() != "")
+                        // String codigo = set.get();
+                        // Habitacion habitacion = set.getValue();
+                        // h.hacerCheckIn(habitacion.getCodigo(), p1);
+                        // System.out.println("Habitación " + habitacion.getCodigo() + " ha sido
+                        // ocupada.");
+                        // break;
+                        // }
+
+                        for (Map.Entry<String, Habitacion> set : h.getTodasLibres().entrySet()) {
+                            String codigo = set.getKey();
+                            Habitacion habitacion = set.getValue();
+                            String check = "HD" + Integer.toString(i);
+
+                            if (codigo.contains("HD")) {
+                                h.hacerCheckIn(habitacion.getCodigo(), p1);
+                                System.out.println("Habitación " + habitacion.getCodigo() + " ha sido ocupada.");
+                                break;
+                            } else if (codigo.contains("HT") || codigo.contains("HC")) {
+                            } else {
+                                System.out.println("Habitaciones dobles llenas.");
+                            }
+                            i++;
+
+                        }
+                        break;
+                }
+                // case 3:
+                // for (Map.Entry<String, Habitacion> set : h.getTodasLibres().entrySet()) {
+
+                // String codigo = set.getKey();
+                // Habitacion habitacion = set.getValue();
+                // h.hacerCheckIn(habitacion.getCodigo(), p1);
+                // System.out.println("Habitación " + habitacion.getCodigo() + " ha sido
+                // ocupada.");
+                // break;
+                // }
+                // break;
+                // case 4:
+                // for (Map.Entry<String, Habitacion> set : h.getTodasLibres().entrySet()) {
+
+                // String codigo = set.getKey();
+                // Habitacion habitacion = set.getValue();
+                // h.hacerCheckIn(habitacion.getCodigo(), p1);
+                // System.out.println("Habitación " + habitacion.getCodigo() + " ha sido
+                // ocupada.");
+                // break;
+                // }
+                // break;
+                // }
+            } catch (Exception e) {
+                System.out.println("Uoop! Error!");
+            }
+
+        }
+
+        // h.hacerCheckIn("HD1", p1);
+
+        // h.hacerCheckIn("HD1", p2);
+
+        // h.hacerCheckIn("HD1", p3);
 
         h.mostrarEstadoOcupacion();
 
-        h.getH("HD1").detallesO();
+        // h.getH("HD1").detallesO();
+
+        // h.hacerCheckOut("HD1", 5);
+
+        // h.mostrarEstadoOcupacion();
+
+        // h.getH("HD1").detallesO();
     }
 }
