@@ -9,7 +9,8 @@ public class Habitacion {
     private Persona titular;
     private List<Persona> ocupantes;
 
-    Habitacion(String id, String nombre, int capacidad, int costo, boolean estado, Persona titular, List<Persona> ocupantes){
+    public Habitacion(String id, String nombre, int capacidad, int costo, boolean estado, Persona titular,
+            List<Persona> ocupantes) {
         this.id = id;
         this.nombre = nombre;
         this.capacidad = capacidad;
@@ -19,39 +20,39 @@ public class Habitacion {
         this.ocupantes = ocupantes;
     }
 
-    public Persona getTitular(){
+    public Persona getTitular() {
         return titular;
     }
 
-    public String getId(){
+    public String getId() {
         return id;
     }
 
-    public int getCapacidad(){
+    public int getCapacidad() {
         return capacidad;
     }
 
-    public String getNombre(){
+    public String getNombre() {
         return nombre;
     }
 
-    public double getCosto(){
+    public double getCosto() {
         return costo;
     }
 
-    public boolean getEstado(){
+    public boolean getEstado() {
         return estado;
     }
 
-    public void setEstado(boolean estado){
+    public void setEstado(boolean estado) {
         this.estado = estado;
     }
 
-    public void setTitular(Persona titular){
+    public void setTitular(Persona titular) {
         this.titular = titular;
     }
 
-    public void setOcupantes(List<Persona> ocupantes){
+    public void setOcupantes(List<Persona> ocupantes) {
         this.ocupantes = ocupantes;
     }
 }

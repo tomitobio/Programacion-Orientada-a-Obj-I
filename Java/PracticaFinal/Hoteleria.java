@@ -354,9 +354,15 @@ class Hotel {
     }
 
     public void crearHabitaciones() {
-        habitaciones.put("HD21", new Habitacion("HD21", 2000, 2));
-        habitaciones.put("HT31", new Habitacion("HT31", 2800, 3));
-        habitaciones.put("HC41", new Habitacion("HC41", 2500, 4));
+        for (int i = 0; i < 13; i++) {
+            habitaciones.put("HD" + Integer.toString(i), new Habitacion("HD21", 2000, 2));
+        }
+        for (int i = 0; i < 8; i++) {
+            habitaciones.put("HT" + Integer.toString(i), new Habitacion("HT31", 2800, 3));
+        }
+        for (int i = 0; i < 5; i++) {
+            habitaciones.put("HC" + Integer.toString(i), new Habitacion("HC41", 2500, 4));
+        }
     }
 
     public Habitacion getH(String h) {
@@ -396,20 +402,20 @@ public class Hoteleria {
 
         Hotel h = new Hotel();
 
-        h.hacerCheckIn("HD21", p1);
+        h.hacerCheckIn("HD1", p1);
 
-        h.hacerCheckIn("HD21", p2);
+        h.hacerCheckIn("HD1", p2);
 
-        h.hacerCheckIn("HD21", p3);
-
-        h.mostrarEstadoOcupacion();
-
-        h.getH("HD21").detallesO();
-
-        h.hacerCheckOut("HD21", 5);
+        h.hacerCheckIn("HD1", p3);
 
         h.mostrarEstadoOcupacion();
 
-        h.getH("HD21").detallesO();
+        h.getH("HD1").detallesO();
+
+        h.hacerCheckOut("HD1", 5);
+
+        h.mostrarEstadoOcupacion();
+
+        h.getH("HD1").detallesO();
     }
 }
