@@ -6,4 +6,5 @@ Cada habitacion tiene codigo unico por habitacion D01 (doble 01)
 En check in: Nombre, Apellido, dni, genero y edad
 En cada habitacion un titular y el resto ocupantes
 Mostrar estado de ocupacion de todo el hotel (las desocupadas con desocupado)
-En check out: cantidad de dias ocupada, cobranza, promocion por jubilado (25% hombre +70 y mujer +65)
+En check out: cantidad de dias ocupada, cobranza, 
+promocion por jubilado (25% hombre +70 y mujer +65)

@@ -333,8 +333,28 @@ class Habitacion {
         this.ocupantes.clear();
         this.ocupada = false;
         double pagare = dias * precio;
+
         System.out.println("Precio a pagar por estancia: " + pagare);
 
+    }
+
+    public double promocion(double precio) {
+        double precioFinal = 0.0;
+        if (this.titular.getGenero() == 'M') {
+            if (this.titular.getEdad() >= 70) {
+                precioFinal = precio * 0.75;
+                System.out.println("Tiene un descuento del 25%");
+                return precioFinal;
+            }
+        } else if (this.titular.getGenero() == 'F') {
+            if (this.titular.getEdad() >= 65) {
+                precioFinal = precio * 0.75;
+                System.out.println("Tiene un descuento del 25%");
+                return precioFinal;
+            }
+        }
+        System.out.println("No tiene descuento.");
+        return precio;
     }
 
     public void detallesO() {
@@ -382,6 +402,18 @@ class Hotel {
         return libres;
     }
 
+    public Map<String, Habitacion> getTodasOcupadas() {
+        Map<String, Habitacion> ocupada = new HashMap<>();
+        for (Map.Entry<String, Habitacion> set : habitaciones.entrySet()) {
+            String llave = set.getKey();
+            Habitacion h = set.getValue();
+            if (h.getOcupada() == true) {
+                ocupada.put(llave, h);
+            }
+        }
+        return ocupada;
+    }
+
     public Habitacion getH(String h) {
         return habitaciones.get(h);
     }
@@ -427,7 +459,7 @@ public class Hoteleria {
         while (select != 0) {
             try {
                 System.out.println("Bienvenido al hotel. Elija un tipo de habitacion: ");
-                System.out.println("(2 para doble, 3 para triple, 4 para cuadruple)");
+                System.out.println("(2 para doble, 3 para triple, 4 para cuadruple, 5 si desea hacer check out)");
                 select = Integer.parseInt(scanner.nextLine());
                 int i = 1;
                 switch (select) {
@@ -464,31 +496,68 @@ public class Hoteleria {
 
                         }
                         break;
+
+                    case 3:
+                        for (Map.Entry<String, Habitacion> set : h.getTodasLibres().entrySet()) {
+                            String codigo = set.getKey();
+                            Habitacion habitacion = set.getValue();
+                            String check = "HT" + Integer.toString(i);
+
+                            if (codigo.contains("HT")) {
+                                h.hacerCheckIn(habitacion.getCodigo(), p1);
+                                System.out.println("Habitación " + habitacion.getCodigo() + " ha sido ocupada.");
+                                break;
+                            } else if (codigo.contains("HD") || codigo.contains("HC")) {
+                            } else {
+                                System.out.println("Habitaciones dobles llenas.");
+                            }
+                            i++;
+                        }
+                        break;
+
+                    case 4:
+                        for (Map.Entry<String, Habitacion> set : h.getTodasLibres().entrySet()) {
+                            String codigo = set.getKey();
+                            Habitacion habitacion = set.getValue();
+                            String check = "HC" + Integer.toString(i);
+
+                            if (codigo.contains("HC")) {
+                                h.hacerCheckIn(habitacion.getCodigo(), p1);
+                                System.out.println("Habitación " + habitacion.getCodigo() + " ha sido ocupada.");
+                                break;
+                            } else if (codigo.contains("HT") || codigo.contains("HD")) {
+                            } else {
+                                System.out.println("Habitaciones dobles llenas.");
+                            }
+                            i++;
+                        }
+                        break;
+                    case 5:
+                        for (Map.Entry<String, Habitacion> set : h.getTodasOcupadas().entrySet()) {
+
+                            String codigo = set.getKey();
+                            Habitacion habitacion = set.getValue();
+
+                            System.out.println("Cuantos días se ha hospedado?");
+                            int dias = scanner.nextInt();
+                            scanner.nextLine();
+                            System.out.println("Usted hará un check out de la siguiente habitacion: ");
+                            String habi = scanner.nextLine();
+
+                            if (codigo.contains(habi)) {
+                                h.hacerCheckOut(habitacion.getCodigo(), dias);
+                                System.out.println("Habitación " + codigo + " ha sido desocupada.");
+                                break;
+                            } else {
+                                System.out.println("Habitación no ocupada.");
+                            }
+                        }
+                        break;
                 }
-                // case 3:
-                // for (Map.Entry<String, Habitacion> set : h.getTodasLibres().entrySet()) {
 
-                // String codigo = set.getKey();
-                // Habitacion habitacion = set.getValue();
-                // h.hacerCheckIn(habitacion.getCodigo(), p1);
-                // System.out.println("Habitación " + habitacion.getCodigo() + " ha sido
-                // ocupada.");
-                // break;
-                // }
-                // break;
-                // case 4:
-                // for (Map.Entry<String, Habitacion> set : h.getTodasLibres().entrySet()) {
+            } catch (
 
-                // String codigo = set.getKey();
-                // Habitacion habitacion = set.getValue();
-                // h.hacerCheckIn(habitacion.getCodigo(), p1);
-                // System.out.println("Habitación " + habitacion.getCodigo() + " ha sido
-                // ocupada.");
-                // break;
-                // }
-                // break;
-                // }
-            } catch (Exception e) {
+            Exception e) {
                 System.out.println("Uoop! Error!");
             }
 
