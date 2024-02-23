@@ -440,24 +440,42 @@ class Hotel {
             habitacion.checkOut(dias);
         }
     }
+
+    public Persona ingresarPersona(Scanner scanner) {
+        System.out.print("Nombre: ");
+        String nombre = scanner.nextLine();
+        System.out.print("Apellido: ");
+        String apellido = scanner.nextLine();
+        System.out.print("DNI: ");
+        int DNI = scanner.nextInt();
+        scanner.nextLine();
+        System.out.print("Genero: ");
+        char genero = scanner.next().charAt(0);
+        System.out.print("Edad: ");
+        int edad = scanner.nextInt();
+        scanner.nextLine();
+
+        return new Persona(nombre, apellido, genero, DNI, edad);
+    }
+
 }
 
 public class Hoteleria {
     public static void main(String[] args) {
 
-        Persona p1 = new Persona("Tomas", "Tobio", 'M', 44851196, 20);
-        Persona p2 = new Persona("Martina", "Caputo", 'F', 46892814, 18);
-        Persona p3 = new Persona("Roberto", "Caputo", 'F', 46892814, 18);
+        // Persona p1 = new Persona("Tomas", "Tobio", 'M', 44851196, 20);
+        // Persona p2 = new Persona("Martina", "Caputo", 'F', 46892814, 18);
+        // Persona p3 = new Persona("Roberto", "Caputo", 'F', 46892814, 18);
 
         Hotel h = new Hotel();
 
         Scanner scanner = new Scanner(System.in);
         int select = -1;
-
-        h.mostrarEstadoOcupacion();
-
+        System.out.println("Regístrese.");
+        Persona p = h.ingresarPersona(scanner);
         while (select != 0) {
             try {
+
                 System.out.println("Bienvenido al hotel. Elija un tipo de habitacion: ");
                 System.out.println("(2 para doble, 3 para triple, 4 para cuadruple, 5 si desea hacer check out)");
                 select = Integer.parseInt(scanner.nextLine());
@@ -485,7 +503,7 @@ public class Hoteleria {
                             String check = "HD" + Integer.toString(i);
 
                             if (codigo.contains("HD")) {
-                                h.hacerCheckIn(habitacion.getCodigo(), p1);
+                                h.hacerCheckIn(habitacion.getCodigo(), p);
                                 System.out.println("Habitación " + habitacion.getCodigo() + " ha sido ocupada.");
                                 break;
                             } else if (codigo.contains("HT") || codigo.contains("HC")) {
@@ -504,7 +522,7 @@ public class Hoteleria {
                             String check = "HT" + Integer.toString(i);
 
                             if (codigo.contains("HT")) {
-                                h.hacerCheckIn(habitacion.getCodigo(), p1);
+                                h.hacerCheckIn(habitacion.getCodigo(), p);
                                 System.out.println("Habitación " + habitacion.getCodigo() + " ha sido ocupada.");
                                 break;
                             } else if (codigo.contains("HD") || codigo.contains("HC")) {
@@ -522,7 +540,7 @@ public class Hoteleria {
                             String check = "HC" + Integer.toString(i);
 
                             if (codigo.contains("HC")) {
-                                h.hacerCheckIn(habitacion.getCodigo(), p1);
+                                h.hacerCheckIn(habitacion.getCodigo(), p);
                                 System.out.println("Habitación " + habitacion.getCodigo() + " ha sido ocupada.");
                                 break;
                             } else if (codigo.contains("HT") || codigo.contains("HD")) {
