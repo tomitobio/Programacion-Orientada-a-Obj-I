@@ -1,0 +1,8 @@
+Alquiler de autos
+Cliente, vehiculos y rental
+Busqueda de auto, reserva, entrega, devolucion y cobro
+Busqueda en menu, reserva para bookearlo, entrega como check in y devolucion como check out
+
+3 motos, precio por dia 1600
+7 autos, precio por dia 2300
+4 camionetas, precio por dia 4000

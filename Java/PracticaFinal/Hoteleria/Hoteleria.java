@@ -1,7 +1,6 @@
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Iterator;
 import java.util.Scanner;
 
 // Hecho estatico
@@ -478,6 +477,7 @@ public class Hoteleria {
 
                 System.out.println("Bienvenido al hotel. Elija un tipo de habitacion: ");
                 System.out.println("(2 para doble, 3 para triple, 4 para cuadruple, 5 si desea hacer check out)");
+                // Hacer un 1 para agregar a una persona mas a la habitacion
                 select = Integer.parseInt(scanner.nextLine());
                 int i = 1;
                 switch (select) {
