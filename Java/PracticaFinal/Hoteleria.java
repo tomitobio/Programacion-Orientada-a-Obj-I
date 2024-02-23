@@ -484,19 +484,6 @@ public class Hoteleria {
 
                     case 2:
 
-                        // Iterator<Map.Entry<String, Habitacion>> iterator =
-                        // h.getTodas().entrySet().iterator();
-                        // while (iterator.hasNext()) {
-                        // Map.Entry<String, Habitacion> entry = iterator.next();
-                        // if (iterator.getKey().getCodigo() != "")
-                        // String codigo = set.get();
-                        // Habitacion habitacion = set.getValue();
-                        // h.hacerCheckIn(habitacion.getCodigo(), p1);
-                        // System.out.println("Habitación " + habitacion.getCodigo() + " ha sido
-                        // ocupada.");
-                        // break;
-                        // }
-
                         for (Map.Entry<String, Habitacion> set : h.getTodasLibres().entrySet()) {
                             String codigo = set.getKey();
                             Habitacion habitacion = set.getValue();
@@ -580,21 +567,5 @@ public class Hoteleria {
             }
 
         }
-
-        // h.hacerCheckIn("HD1", p1);
-
-        // h.hacerCheckIn("HD1", p2);
-
-        // h.hacerCheckIn("HD1", p3);
-
-        h.mostrarEstadoOcupacion();
-
-        // h.getH("HD1").detallesO();
-
-        // h.hacerCheckOut("HD1", 5);
-
-        // h.mostrarEstadoOcupacion();
-
-        // h.getH("HD1").detallesO();
     }
 }
