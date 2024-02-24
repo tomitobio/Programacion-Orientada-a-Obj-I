@@ -47,6 +47,10 @@ class Vehiculo {
         return this.codigo;
     }
 
+    public double getPrecio() {
+        return this.precio;
+    }
+
     public int getCant() {
         return this.cantP;
     }
@@ -256,6 +260,7 @@ class Rental {
             Vehiculo v = i.getValue();
             System.out.println(v.getCodigo());
             if (v.getEstado() == true && v.getCodigo().contains(c)) {
+                System.out.println("Debe pagar: " + v.getPrecio());
                 System.out.println(v.getCodigo() + "- Entregado");
             }
         }
