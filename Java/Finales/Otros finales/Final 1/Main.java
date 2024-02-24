@@ -1,7 +1,7 @@
 public class Main {
     public static void main(String[] args) {
 
-        Agencia agencia = new Agencia();
+        Agencia1 agencia = new Agencia1();
 
         // COMPRA DE VEHICULOS
         Vehiculo moto1 = new Vehiculo("M1", 2, 1000);

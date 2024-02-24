@@ -18,6 +18,10 @@ class Cliente {
         return this.edad;
     }
 
+    public String getNombre() {
+        return this.nombre;
+    }
+
     public void detallesP() {
         System.out.println("Nombre: " + this.nombre);
         System.out.println("Apellido: " + this.apellido);
@@ -90,7 +94,7 @@ class Rental {
         System.out.println("Bienvenido a la agencia de autos. Por favor seleccione una de las siguientes opciones:");
 
         System.out.println(
-                "1. Mirar vehiculos disponibles. \n 2. Alquilar. \n 3. Devolver auto. \n 4. Salir del sistema.");
+                "1. Mirar vehiculos disponibles. \n2. Alquilar. \n3. Devolver auto. \n4. Salir del sistema.");
 
         int sel = scanner.nextInt();
         scanner.nextLine();
@@ -108,15 +112,18 @@ class Rental {
                         listado();
                         break;
                     case 2:
-                        // alquilar(scanner);
+                        alquilar(scanner);
                         break;
                     case 3:
-                        // devolver(scanner);
+                        devolver(scanner);
                         break;
                 }
             } catch (Exception e) {
                 System.out.println("Uoop! Error!");
             }
+            System.out.println(
+                    "\n 1. Mirar vehiculos disponibles. \n2. Alquilar. \n3. Devolver auto. \n4. Salir del sistema.");
+
             sel = scanner.nextInt();
             scanner.nextLine();
         }
@@ -134,12 +141,131 @@ class Rental {
         }
     }
 
+    public void alquilar(Scanner scanner) {
+        System.out.println(
+                "\nPara saber que vehiculo alquilar, debe ingresar la cantidad de acompanantes:\n1 Acompaniante: MOTO\n2 o 3 Acompaniantes: AUTO\n4 Acompaniantes: CAMIONETA");
+
+        int cant = scanner.nextInt();
+        scanner.nextLine();
+
+        while (cant <= 0 || cant >= 5) {
+            System.out.println("Seleccione una opcion adecuada.");
+            cant = scanner.nextInt();
+            scanner.nextLine();
+        }
+
+        ArrayList<Cliente> grupo = cargarGrupo(scanner, cant);
+        for (Cliente i : grupo) {
+            System.out.println("\n" + i.getNombre() + " cargado correctamente.");
+        }
+
+        switch (cant) {
+            case 1:
+                for (Map.Entry<String, Vehiculo> i : vehiculos.entrySet()) {
+                    String codigo = i.getKey();
+                    Vehiculo v = i.getValue();
+                    if (v.getEstado() == false && codigo.contains("Moto")) {
+                        v.setC(grupo);
+                        v.setEstado(true);
+                        System.out.println("Se le ha asignado la moto: " + codigo);
+                        break;
+                    }
+                }
+                break;
+
+            case 2:
+                for (Map.Entry<String, Vehiculo> i : vehiculos.entrySet()) {
+                    String codigo = i.getKey();
+                    Vehiculo v = i.getValue();
+                    if (v.getEstado() == false && codigo.contains("Auto")) {
+                        v.setC(grupo);
+                        v.setEstado(true);
+                        System.out.println("Se le ha asignado el auto: " + codigo);
+                        break;
+                    }
+                }
+                break;
+
+            case 3:
+                for (Map.Entry<String, Vehiculo> i : vehiculos.entrySet()) {
+                    String codigo = i.getKey();
+                    Vehiculo v = i.getValue();
+                    if (v.getEstado() == false && codigo.contains("Auto")) {
+                        v.setC(grupo);
+                        v.setEstado(true);
+                        System.out.println("Se le ha asignado el auto: " + codigo);
+                        break;
+                    }
+                }
+                break;
+
+            case 4:
+                for (Map.Entry<String, Vehiculo> i : vehiculos.entrySet()) {
+                    String codigo = i.getKey();
+                    Vehiculo v = i.getValue();
+                    if (v.getEstado() == false && codigo.contains("Cam")) {
+                        v.setC(grupo);
+                        v.setEstado(true);
+                        System.out.println("Se le ha asignado la camioneta: " + codigo);
+                        break;
+                    }
+                }
+                break;
+        }
+
+    }
+
+    public ArrayList<Cliente> cargarGrupo(Scanner scanner, int cant) {
+
+        ArrayList<Cliente> grupo = new ArrayList<Cliente>();
+
+        System.out.println("Ingresar datos de conductor: \n");
+        System.out.println("Nombre: ");
+        String nombre = scanner.nextLine();
+        System.out.println("Apellido: ");
+        String apellido = scanner.nextLine();
+        System.out.println("Edad: ");
+        int edad = scanner.nextInt();
+        scanner.nextLine();
+
+        Cliente titular = new Cliente(nombre, apellido, edad);
+        grupo.add(titular);
+
+        for (int i = 0; i < cant; i++) {
+            System.out.println("Ingresar datos de acompañante n° " + (i + 1) + "\n");
+            System.out.println("Nombre: ");
+            String nombre1 = scanner.nextLine();
+            System.out.println("Apellido: ");
+            String apellido1 = scanner.nextLine();
+            System.out.println("Edad: ");
+            int edad1 = scanner.nextInt();
+            scanner.nextLine();
+
+            Cliente aux = new Cliente(nombre1, apellido1, edad1);
+            grupo.add(aux);
+        }
+        return grupo;
+    }
+
+    public void devolver(Scanner scanner) {
+        System.out.println("Ingrese codigo de vehiculo a entregar: ");
+        String c = scanner.nextLine();
+        System.out.println(c);
+
+        for (Map.Entry<String, Vehiculo> i : vehiculos.entrySet()) {
+            Vehiculo v = i.getValue();
+            System.out.println(v.getCodigo());
+            if (v.getEstado() == true && v.getCodigo().contains(c)) {
+                System.out.println(v.getCodigo() + "- Entregado");
+            }
+        }
+    }
 }
 
 public class Concesionario {
     public static void main(String[] args) {
         // Moto moto = new Moto("hola");
-        Agencia agencia = new Agencia();
+        Rental agencia = new Rental();
 
         agencia.start();
 

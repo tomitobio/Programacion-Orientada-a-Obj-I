@@ -3,12 +3,12 @@ import java.util.Scanner;
 
 //ACLARACION: No tengo enie.
 
-public class Agencia {
+public class Agencia1 {
     private ArrayList<Vehiculo> vehiculoMoto;
     private ArrayList<Vehiculo> vehiculoAuto;
     private ArrayList<Vehiculo> vehiculoCamioneta;
 
-    Agencia() {
+    Agencia1() {
         this.vehiculoMoto = new ArrayList<Vehiculo>();
         this.vehiculoAuto = new ArrayList<Vehiculo>();
         this.vehiculoCamioneta = new ArrayList<Vehiculo>();
