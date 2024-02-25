@@ -216,7 +216,6 @@ class Rental {
                 }
                 break;
         }
-
     }
 
     public ArrayList<Cliente> cargarGrupo(Scanner scanner, int cant) {
