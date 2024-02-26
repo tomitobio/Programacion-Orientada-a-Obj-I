@@ -299,56 +299,63 @@ class Tienda {
                     scanner.nextLine();
                 }
 
-                switch (sel) {
-                    case 1:
-                        System.out.println("Ingrese codigo de producto a alquilar: ");
-                        String p = scanner.nextLine();
-                        for (Map.Entry<String, Item> i : items.entrySet()) {
-                            String codigo = i.getKey();
-                            Item item = i.getValue();
-                            if (item.getCodigo().contains(p) && item.getEstado() == false) {
-                                s.setCreditos(s.getCreditos() - 400);
-                                item.setEstadoT();
-                                System.out
-                                        .println("Has alquilado el " + item.getCodigo() + ". Tus nuevos creditos son: "
-                                                + s.getCreditos());
-                                break;
-                            }
+                try {
+                    switch (sel) {
+                        case 1:
+                            System.out.println("Ingrese codigo de producto a alquilar: ");
+                            String p = scanner.nextLine();
+                            for (Map.Entry<String, Item> i : items.entrySet()) {
+                                String codigo = i.getKey();
+                                Item item = i.getValue();
+                                if (item.getCodigo().contains(p) && item.getEstado() == false) {
+                                    s.setCreditos(s.getCreditos() - 400);
+                                    item.setEstadoT();
+                                    System.out
+                                            .println("Has alquilado el " + item.getCodigo()
+                                                    + ". Tus nuevos creditos son: "
+                                                    + s.getCreditos());
+                                    break;
+                                }
 
-                        }
-                        break;
-                    case 2:
-                        System.out.println("Ingrese codigo de producto a alquilar: ");
-                        String p2 = scanner.nextLine();
-                        for (Map.Entry<String, Item> i : items.entrySet()) {
-                            String codigo = i.getKey();
-                            Item item = i.getValue();
-                            if (item.getCodigo().contains(p2) && item.getEstado() == false) {
-                                item.setEstadoT();
-                                s.setCreditos(s.getCreditos() - 300);
-                                System.out
-                                        .println("Has alquilado el " + item.getCodigo() + ". Tus nuevos creditos son: "
-                                                + s.getCreditos());
-                                break;
                             }
-                        }
-                        break;
-                    case 3:
-                        System.out.println("Ingrese codigo de producto a alquilar: ");
-                        String p3 = scanner.nextLine();
-                        for (Map.Entry<String, Item> i : items.entrySet()) {
-                            String codigo = i.getKey();
-                            Item item = i.getValue();
-                            if (item.getCodigo().contains(p3) && item.getEstado() == false) {
-                                item.setEstadoT();
-                                s.setCreditos(s.getCreditos() - 500);
-                                System.out
-                                        .println("Has alquilado el " + item.getCodigo() + ". Tus nuevos creditos son: "
-                                                + s.getCreditos());
-                                break;
+                            break;
+                        case 2:
+                            System.out.println("Ingrese codigo de producto a alquilar: ");
+                            String p2 = scanner.nextLine();
+                            for (Map.Entry<String, Item> i : items.entrySet()) {
+                                String codigo = i.getKey();
+                                Item item = i.getValue();
+                                if (item.getCodigo().contains(p2) && item.getEstado() == false) {
+                                    item.setEstadoT();
+                                    s.setCreditos(s.getCreditos() - 300);
+                                    System.out
+                                            .println("Has alquilado el " + item.getCodigo()
+                                                    + ". Tus nuevos creditos son: "
+                                                    + s.getCreditos());
+                                    break;
+                                }
                             }
-                        }
-                        break;
+                            break;
+                        case 3:
+                            System.out.println("Ingrese codigo de producto a alquilar: ");
+                            String p3 = scanner.nextLine();
+                            for (Map.Entry<String, Item> i : items.entrySet()) {
+                                String codigo = i.getKey();
+                                Item item = i.getValue();
+                                if (item.getCodigo().contains(p3) && item.getEstado() == false) {
+                                    item.setEstadoT();
+                                    s.setCreditos(s.getCreditos() - 500);
+                                    System.out
+                                            .println("Has alquilado el " + item.getCodigo()
+                                                    + ". Tus nuevos creditos son: "
+                                                    + s.getCreditos());
+                                    break;
+                                }
+                            }
+                            break;
+                    }
+                } catch (Exception e) {
+                    System.out.println("Error. ");
                 }
             }
         }
